@@ -10,10 +10,16 @@
 ###########################
 # Eclipse generated files #
 ###########################
-.project
-.classpath
-.settings
-.checkstyle
+#.project
+#.classpath
+#.settings
+#.checkstyle
+#.pmd
+
+#########################
+# Ant generated files #
+#########################
+#bin/
 
 #########################
 # Maven generated files #
