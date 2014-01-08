@@ -1,6 +1,56 @@
-*.class
 
-# Package Files #
+########################
+# Java generated files #
+########################
+*.class
 *.jar
 *.war
 *.ear
+
+###########################
+# Eclipse generated files #
+###########################
+.project
+.classpath
+.settings
+.checkstyle
+
+#########################
+# Maven generated files #
+#########################
+target/
+
+######################
+# OS generated files #
+######################
+.DS_Store
+ehthumbs.db
+Icon?
+Thumbs.db
+
+################################
+# Sublime Text generated files #
+################################
+*.sublime-project
+*.sublime-workspace
+
+##############
+# Diff Files #
+##############
+*.orig
+
+######################
+# Editing temp files #
+######################
+*~
+*#
+
+###########################
+# Other unnecessary files #
+###########################
+.svn
+
+##############
+# Exceptions #
+##############
+# !xxx.jar
