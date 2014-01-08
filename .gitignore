@@ -1,4 +1,19 @@
 
+##################
+# Custom Ignores #
+##################
+bin/custom/cuppy/hmc/bin/
+bin/custom/cuppy/web/webroot/cockpit/
+bin/custom/cuppytrail/web/webroot/cuppy/
+bin/custom/cuppytrailbackoffice/resources/backoffice/
+bin/custom/cuppytrailcockpit/web/webroot/cockpit/
+bin/custom/cuppytrailcockpit/web/webroot/cuppy/
+bin/custom/cuppytrailfrontend/web/webroot/cockpit/
+bin/custom/cuppytrailfrontend/web/webroot/cuppy/
+bin/custom/cuppytrailhmc/hmc/bin/
+bin/custom/cuppytrailhmc/web/webroot/cuppy/
+
+
 ########################
 # Java generated files #
 ########################
@@ -6,10 +21,18 @@
 *.war
 *.ear
 
-#########################
-# Ant generated files #
-#########################
-#bin/
+##############################
+# hybris Ant generated files #
+##############################
+gensrc/
+build.xml
+extensioninfo.xsd
+hmc.xsd
+platformhome.properties
+*-testclasses.xml
+beans.xsd
+items.xsd
+classes/
 
 #########################
 # Maven generated files #
