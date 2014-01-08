@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<widgets xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/widgets.xsd">
+
+	<widget-extension widgetId="backofficeMainSlot">
+		<widget id="cuppytrailbackoffice-example-perspective" slotId="perspectives"
+			template="false" title="Cuppy" widgetDefinitionId="com.hybris.cockpitng.borderlayout">
+			<widget id="cuppytrailbackoffice-explorer-tree" slotId="leftSlot"
+				template="false" widgetDefinitionId="com.hybris.cockpitng.widgets.common.explorertree">
+				<widget id="cuppytrailbackoffice-tree-node-adapter" slotId="cockpitWidgetChildrenInvisible"
+					template="false" widgetDefinitionId="com.hybris.cockpitng.conditionevaluator">
+					<setting key="expression" type="String"
+						value="#root instanceof T(com.hybris.cockpitng.tree.node.TypeNode)" />
+					<setting key="socketDataType_$T" type="String"
+						value="com.hybris.backoffice.navigation.NavigationNode" />
+					<setting key="widgetStyleAttribute" type="String" value="" />
+					<setting key="widgetStyleClass" type="String" value="" />
+					<virtual-sockets />
+				</widget>
+				<widget id="cuppytrailbackoffice-typecode-extractor" slotId="cockpitWidgetChildrenInvisible"
+					template="false" widgetDefinitionId="com.hybris.cockpitng.widgets.common.propextractor">
+					<setting key="expression" type="String" value="code" />
+					<setting key="socketDataType_$T" type="String" value="java.lang.String" />
+					<setting key="widgetStyleAttribute" type="String" value="" />
+					<setting key="widgetStyleClass" type="String" value="" />
+					<virtual-sockets />
+				</widget>
+				<setting key="config.context.perspective" type="String"
+					value="cuppytrailbackoffice" />
+				<setting key="widgetStyleAttribute" type="String"
+					value="min-height: 30px; height:100%" />
+				<setting key="cacheTreemodel" type="Boolean" value="true" />
+				<setting key="widgetStyleClass" type="String" value="" />
+				<setting key="#cp_invisibleContainer_visible" type="String"
+					value="true" />
+				<virtual-sockets />
+			</widget>
+			<widget id="cuppytrailbackoffice-inner-layout" slotId="centerSlot"
+				template="false" widgetDefinitionId="com.hybris.cockpitng.borderlayout">
+				<widget id="cuppytrailbackoffice-text-search" slotId="headerSlot"
+					template="false" widgetDefinitionId="com.hybris.cockpitng.textsearch">
+					<widget id="cuppytrailbackoffice-search-logic" slotId="cockpitWidgetChildrenInvisible"
+						template="false" widgetDefinitionId="com.hybris.cockpitng.widgets.common.simplesearch">
+						<setting key="widgetStyleAttribute" type="String" value="" />
+						<setting key="widgetStyleClass" type="String" value="" />
+						<setting key="pageSize" type="Integer" value="10" />
+						<setting key="attributeOperator" type="String" value="equals" />
+						<virtual-sockets />
+					</widget>
+					<widget id="cuppytrailbackoffice-search-enabler" slotId="cockpitWidgetChildrenInvisible"
+						template="false" widgetDefinitionId="com.hybris.cockpitng.widgets.common.propextractor">
+						<setting key="expression" type="String" value="new Boolean(true)" />
+						<setting key="socketDataType_$T" type="String" value="java.lang.Boolean" />
+						<setting key="widgetStyleAttribute" type="String" value="" />
+						<setting key="widgetStyleClass" type="String" value="" />
+						<virtual-sockets />
+					</widget>
+					<widget id="cuppytrailbackoffice-search-disabler" slotId="cockpitWidgetChildrenInvisible"
+						template="false" widgetDefinitionId="com.hybris.cockpitng.widgets.common.propextractor">
+						<setting key="expression" type="String" value="new Boolean(false)" />
+						<setting key="socketDataType_$T" type="String" value="java.lang.Boolean" />
+						<setting key="widgetStyleAttribute" type="String" value="" />
+						<setting key="widgetStyleClass" type="String" value="" />
+						<virtual-sockets />
+					</widget>
+					<setting key="widgetStyleAttribute" type="String" value="" />
+					<setting key="widgetStyleClass" type="String" value="" />
+					<setting key="enabledByDefault" type="Boolean" value="false" />
+					<setting key="#cp_invisibleContainer_visible" type="String"
+						value="true" />
+					<virtual-sockets />
+				</widget>
+				<widget id="cuppytrailbackoffice-simple-list" slotId="centerSlot"
+					template="false" widgetDefinitionId="com.hybris.cockpitng.widgets.common.simplelist">
+					<setting key="widgetStyleAttribute" type="String" value="" />
+					<setting key="widgetStyleClass" type="String" value="" />
+					<setting key="pageSize" type="Integer" value="10" />
+					<setting key="async" type="Boolean" value="true" />
+					<virtual-sockets />
+				</widget>
+				<widget id="cuppytrailbackoffice-cuppy-list" slotId="centerSlot"
+					template="false" widgetDefinitionId="com.hybris.cuppytrailbackoffice.cuppylist">
+					<widget id="cuppytrailbackoffice-simple-list" slotId="simpleList"
+						template="false" widgetDefinitionId="com.hybris.cockpitng.widgets.common.simplelist">
+						<setting key="widgetStyleAttribute" type="String" value="" />
+						<setting key="widgetStyleClass" type="String" value="" />
+						<setting key="pageSize" type="Integer" value="10" />
+						<setting key="async" type="Boolean" value="true" />
+						<virtual-sockets />
+					</widget>
+					<setting key="widgetStyleAttribute" type="String" value="" />
+					<setting key="widgetStyleClass" type="String" value="" />
+					<virtual-sockets />
+				</widget>
+				<!-- embedded invisible wizard widget -->
+				<widget id="cuppyNewItemWizard" widgetDefinitionId="com.hybris.cuppytrailbackoffice.cuppywizard"
+					slotId="cockpitWidgetChildrenInvisible" template="true">
+					<instance-settings socketEventRoutingMode="LAST_USED">
+						<create onInit="false" reuseExisting="true">
+							<all-incoming-events />
+						</create>
+						<close>
+							<outgoing-events>
+								<socket-event id="newItem" />
+							</outgoing-events>
+						</close>
+						<select onInit="false">
+							<all-incoming-events />
+						</select>
+					</instance-settings>
+					<setting key="widgetStyleAttribute" value="" type="String" />
+					<setting key="widgetStyleClass" value="" type="String" />
+					<setting key="__externalLocationPath" value="extension://cuppytrailbackoffice"
+						type="String" />
+					<virtual-sockets />
+				</widget>
+				<setting key="opaqueBG" type="String" value="true" />
+				<setting key="southHeight" type="String" value="50px" />
+				<setting key="widgetStyleAttribute" type="String" value="" />
+				<setting key="northHeight" type="String" value="65px" />
+				<setting key="westBorder" type="String" value="none" />
+				<setting key="northBorder" type="String" value="none" />
+				<setting key="eastDisabled" type="Boolean" value="true" />
+				<setting key="southBorder" type="String" value="none" />
+				<setting key="southDisabled" type="Boolean" value="true" />
+				<setting key="eastBorder" type="String" value="none" />
+				<setting key="eastWidth" type="String" value="25%" />
+				<setting key="northDisabled" type="Boolean" value="false" />
+				<setting key="westCollapsible" type="Boolean" value="true" />
+				<setting key="widgetStyleClass" type="String" value="" />
+				<setting key="southCollapsible" type="Boolean" value="true" />
+				<setting key="northCollapsible" type="Boolean" value="true" />
+				<setting key="border" type="String" value="none" />
+				<setting key="westWidth" type="String" value="300px" />
+				<setting key="centerBorder" type="String" value="none" />
+				<setting key="westDisabled" type="Boolean" value="true" />
+				<setting key="eastCollapsible" type="Boolean" value="true" />
+				<virtual-sockets />
+			</widget>
+			<setting key="opaqueBG" type="String" value="true" />
+			<setting key="southHeight" type="String" value="50px" />
+			<setting key="widgetStyleAttribute" type="String" value="" />
+			<setting key="northHeight" type="String" value="50px" />
+			<setting key="westBorder" type="String" value="none" />
+			<setting key="northBorder" type="String" value="none" />
+			<setting key="eastDisabled" type="Boolean" value="true" />
+			<setting key="southBorder" type="String" value="none" />
+			<setting key="southDisabled" type="Boolean" value="true" />
+			<setting key="eastBorder" type="String" value="none" />
+			<setting key="eastWidth" type="String" value="25%" />
+			<setting key="northDisabled" type="Boolean" value="true" />
+			<setting key="westCollapsible" type="Boolean" value="true" />
+			<setting key="widgetStyleClass" type="String" value="" />
+			<setting key="southCollapsible" type="Boolean" value="true" />
+			<setting key="northCollapsible" type="Boolean" value="true" />
+			<setting key="border" type="String" value="none" />
+			<setting key="westWidth" type="String" value="300px" />
+			<setting key="centerBorder" type="String" value="none" />
+			<setting key="eastCollapsible" type="Boolean" value="true" />
+			<setting key="perspectiveImageUrl" type="String"
+				value="/cng/images/perspective.png" />
+			<virtual-sockets />
+		</widget>
+	</widget-extension>
+
+
+
+	<widget-connection inputId="input" outputId="nodeSelected"
+		sourceWidgetId="cuppytrailbackoffice-explorer-tree" targetWidgetId="cuppytrailbackoffice-tree-node-adapter" />
+	<widget-connection inputId="genericInput" outputId="true"
+		sourceWidgetId="cuppytrailbackoffice-tree-node-adapter"
+		targetWidgetId="cuppytrailbackoffice-typecode-extractor" />
+	<widget-connection inputId="genericInput" outputId="true"
+		sourceWidgetId="cuppytrailbackoffice-tree-node-adapter"
+		targetWidgetId="cuppytrailbackoffice-search-enabler" />
+	<widget-connection inputId="genericInput" outputId="false"
+		sourceWidgetId="cuppytrailbackoffice-tree-node-adapter"
+		targetWidgetId="cuppytrailbackoffice-search-disabler" />
+	<widget-connection inputId="type" outputId="genericOutput"
+		sourceWidgetId="cuppytrailbackoffice-typecode-extractor"
+		targetWidgetId="cuppytrailbackoffice-search-logic" />
+	<widget-connection inputId="enabled" outputId="genericOutput"
+		sourceWidgetId="cuppytrailbackoffice-search-enabler" targetWidgetId="cuppytrailbackoffice-text-search" />
+	<widget-connection inputId="enabled" outputId="genericOutput"
+		sourceWidgetId="cuppytrailbackoffice-search-disabler" targetWidgetId="cuppytrailbackoffice-text-search" />
+	<widget-connection inputId="searchtext" outputId="query"
+		sourceWidgetId="cuppytrailbackoffice-text-search" targetWidgetId="cuppytrailbackoffice-search-logic" />
+	<widget-connection inputId="pageable" outputId="pageable"
+		sourceWidgetId="cuppytrailbackoffice-search-logic" targetWidgetId="cuppytrailbackoffice-simple-list" />
+	<widget-connection inputId="enabled" outputId="genericOutput"
+		sourceWidgetId="cuppytrailbackoffice-search-enabler" targetWidgetId="cuppytrailbackoffice-cuppy-list" />
+	<widget-connection inputId="enabled" outputId="genericOutput"
+		sourceWidgetId="cuppytrailbackoffice-search-disabler" targetWidgetId="cuppytrailbackoffice-cuppy-list" />
+	<widget-connection inputId="type" outputId="genericOutput"
+		sourceWidgetId="cuppytrailbackoffice-typecode-extractor"
+		targetWidgetId="cuppytrailbackoffice-cuppy-list" />
+	<widget-connection inputId="type" outputId="create"
+		sourceWidgetId="cuppytrailbackoffice-cuppy-list" targetWidgetId="cuppyNewItemWizard" />
+</widgets>

@@ -3,18 +3,8 @@
 # Java generated files #
 ########################
 *.class
-*.jar
 *.war
 *.ear
-
-###########################
-# Eclipse generated files #
-###########################
-#.project
-#.classpath
-#.settings
-#.checkstyle
-#.pmd
 
 #########################
 # Ant generated files #

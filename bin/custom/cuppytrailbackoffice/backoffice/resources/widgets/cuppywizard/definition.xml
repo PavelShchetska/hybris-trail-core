@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<widget-definition xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://www.hybris.com/schema/cockpitng/widget-definition.xsd"
+id="com.hybris.cuppytrailbackoffice.cuppywizard">
+    <name>Cuppy Wizard</name>
+    <description>Wizard for creating new items for trail purpose</description>
+    <defaultTitle>Cuppy New Item Wizard</defaultTitle>
+    <author>hybris</author>
+    <version>1.0</version>
+    <keywords>
+        <keyword>Wizard</keyword>
+    </keywords>
+    <view src="cuppywizard.zul"/>
+    <controller class="com.hybris.cuppytrailbackoffice.widgets.CuppyNewItemWizardController"/>
+    <sockets>
+        <input type="java.lang.String" id="type"/>
+        <output type="[T]" id="newItem"/>
+    </sockets>
+</widget-definition>
